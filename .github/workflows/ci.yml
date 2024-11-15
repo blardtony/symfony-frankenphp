@@ -29,10 +29,10 @@ jobs:
             compose.override.yaml
       -
         name: Start services
-        run: make start
+        run: docker compose up --wait --no-build
       -
         name: Vendor install
-        run: make vendor
+        run: make vendor-dev
       -
         name: Check HTTP reachable
         run: curl -v --fail-with-body http://localhost:8080

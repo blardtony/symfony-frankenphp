@@ -50,6 +50,10 @@ vendor: ## Install vendors according to the current composer.lock file
 vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
 vendor: composer
 
+vendor-dev: ## Install vendors according to the current composer.lock file
+vendor-dev: c=install --prefer-dist --no-progress --no-scripts --no-interaction
+vendor-dev: composer
+
 ## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
 sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
 	@$(eval c ?=)
