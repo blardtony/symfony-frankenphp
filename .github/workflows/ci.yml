@@ -35,7 +35,7 @@ jobs:
         run: curl -v --fail-with-body http://localhost:8080
       -
         name: Run PHPUnit
-        run: docker compose exec -T bin/phpunit
+        run: docker compose exec -T php bin/phpunit
   lint:
     name: Docker Lint
     runs-on: ubuntu-latest
