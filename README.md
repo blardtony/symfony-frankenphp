@@ -10,8 +10,9 @@ This is a simple example of how to use Symfony with Frankenphp.
 ## Getting Started
 
 1. Clone this repository
-2. Run `make start` to build and start the containers
-3. Access the application at `http://localhost:8080`
+2. Create a `.env.local` file in the project root and set the APP_SECRET variable
+3. Run `make start` to build and start the containers
+4. Access the application at `http://localhost:8080`
 
 
 ## Available Make commands
