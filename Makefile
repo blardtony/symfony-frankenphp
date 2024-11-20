@@ -13,6 +13,7 @@ SYMFONY  = $(PHP) bin/console
 PHPUNIT = ./vendor/bin/phpunit
 PHPSTAN = ./vendor/bin/phpstan
 PHP_CS_FIXER = ./vendor/bin/php-cs-fixer
+PHP_RECTOR = ./vendor/bin/rector
 
 ## —— 🎵 🐳 The Symfony Docker Makefile 🐳 🎵 ——————————————————————————————————
 help: ## Outputs this help screen
@@ -68,7 +69,13 @@ stan: ## Run PHPStan
 	@$(PHPSTAN) analyse -c phpstan.dist.neon --memory-limit 1G
 
 lint-php: ## Lint files with php-cs-fixer
-	@$(PHP_CS_FIXER) fix --allow-risky=yes --dry-run --config=.php-cs-fixer.dist.php
+	@$(PHP_CS_FIXER) fix --allow-risky=yes --dry-run --config=.php-cs-fixer.dist.php -vvv
 
 fix-php: ## Fix files with php-cs-fixer
-	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_CS_FIXER) fix --allow-risky=yes --config=.php-cs-fixer.dist.php
+	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_CS_FIXER) fix --allow-risky=yes --config=.php-cs-fixer.dist.php -vvv
+
+rector-check: ## Check for Rector changes
+	@$(PHP_RECTOR) --dry-run
+
+rector: ## Apply Rector changes
+	@$(PHP_RECTOR)
